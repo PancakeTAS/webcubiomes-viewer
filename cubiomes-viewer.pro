@@ -107,6 +107,7 @@ SOURCES += \
         src/mainwindow.cpp \
         src/main.cpp \
         src/structuredialog.cpp \
+        src/timer.cpp \
         src/world.cpp
 
 HEADERS += \
@@ -171,6 +172,7 @@ HEADERS += \
         src/mainwindow.h \
         src/settings.h \
         src/structuredialog.h \
+        src/timer.h \
         src/world.h
 
 FORMS += \

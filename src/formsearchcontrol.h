@@ -104,7 +104,6 @@ public:
     bool setList64(QString path, bool quiet);
 
     void searchLockUi(bool lock);
-
     void setSearchMode(int mode);
 
 signals:
@@ -148,7 +147,7 @@ protected:
 public: 
     struct TProg { uint64_t ns, prog; };
 
-private:
+public:
     MainWindow *parent;
     Ui::FormSearchControl *ui;
     SeedTableModel *model;

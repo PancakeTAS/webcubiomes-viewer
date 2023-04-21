@@ -11,6 +11,7 @@
 #include <QAction>
 #include <QClipboard>
 #include <QFileDialog>
+#include <QLoggingCategory>
 #include <QMessageBox>
 #include <QFontMetrics>
 
@@ -314,8 +315,8 @@ void FormSearchControl::on_buttonClear_clicked()
 
 void FormSearchControl::on_buttonStart_clicked()
 {
-    if (ui->buttonStart->isChecked())
-    {
+    //if (ui->buttonStart->isChecked())
+    //{
         WorldInfo wi;
         parent->getSeed(&wi);
         const Config& config = parent->config;
@@ -369,7 +370,7 @@ void FormSearchControl::on_buttonStart_clicked()
         {
             ui->buttonStart->setChecked(false);
         }
-    }
+    /*}
     else
     {
         ui->buttonStart->setText(tr("Start search"));
@@ -379,7 +380,7 @@ void FormSearchControl::on_buttonStart_clicked()
         // disable until finish
         ui->buttonStart->setEnabled(false);
         stopSearch();
-    }
+    }*/
 
     update();
 }
@@ -593,6 +594,7 @@ int FormSearchControl::searchResultsAdd(QVector<uint64_t> seeds, bool countonly)
         }
         current.insert(s);
         newseeds.append(s);
+        qInfo() << QString::asprintf("SEED: %" PRId64, s) << '\n'; // print seed to console
         n++;
     }
     if (!newseeds.empty())

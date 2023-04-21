@@ -447,14 +447,14 @@ void MainWindow::saveSettings()
         settings.setValue(s, getMapView()->getShow(stype));
     }
 
-    if (config.restoreSession)
+    /*if (config.restoreSession)
     {
         QString path = QStandardPaths::writableLocation(QStandardPaths::AppConfigLocation);
         QDir dir(path);
         if (!dir.exists())
             dir.mkpath(".");
         saveProgress(path + "/session.save", true);
-    }
+    }*/
 }
 
 
@@ -528,7 +528,7 @@ void MainWindow::loadSettings()
     int dim = settings.value("map/dim", getDim()).toInt();
     setSeed(wi, dim);
 
-    if (config.restoreSession)
+    /*if (config.restoreSession)
     {
         QString path = QStandardPaths::writableLocation(QStandardPaths::AppConfigLocation);
         path += "/session.save";
@@ -536,7 +536,7 @@ void MainWindow::loadSettings()
         {
             loadProgress(path, false, false);
         }
-    }
+    }*/
 
     if (config.autosaveCycle > 0)
     {
@@ -1134,7 +1134,7 @@ void MainWindow::on_actionSearch_full_seed_space_triggered()
 
 void MainWindow::onAutosaveTimeout()
 {
-    if (config.autosaveCycle)
+    /*if (config.autosaveCycle)
     {
         QString path = QStandardPaths::writableLocation(QStandardPaths::AppConfigLocation);
         saveProgress(path + "/session.save", true);
@@ -1143,7 +1143,7 @@ void MainWindow::onAutosaveTimeout()
         //    ui->statusBar->showMessage(tr("Session autosaved"), dispms);
         //else
         //    ui->statusBar->showMessage(tr("Autosave failed"), dispms);
-    }
+    }*/
 }
 
 void MainWindow::onActionHistory(QAction *act)

@@ -2,8 +2,10 @@
 #include <QApplication>
 #include <QTranslator>
 #include <QFontDatabase>
+#include <QStandardPaths>
 
 #include "world.h"
+#include "timer.h"
 
 #include "cubiomes/generator.h"
 #include "cubiomes/util.h"
@@ -65,7 +67,23 @@ int main(int argc, char *argv[])
     }
 
     MainWindow mw;
-    mw.show();
+
+    // show main window if requested
+    if (argc > 1) {
+        mw.show();
+    }
+
+    // load job and start search
+    QString path = QStandardPaths::writableLocation(QStandardPaths::RuntimeLocation);
+    path += "/job.txt";
+    mw.loadProgress(path, false, false);
+    mw.formControl->on_buttonStart_clicked();
+
+    // create the timer
+    Timer t;
+    t.mainWindow = &mw;
+    t.startTimer();
+
     int ret = app.exec();
 
     return ret;

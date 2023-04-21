@@ -51,6 +51,7 @@ public:
 
     QAction *addMapAction(int sopt, const char *iconpath, QString tip);
 
+    bool loadProgress(QString fnam, bool keepresults, bool quiet);
     bool getSeed(WorldInfo *wi, bool applyrand = true);
     bool setSeed(WorldInfo wi, int dim = DIM_UNDEF);
     int getDim();
@@ -60,7 +61,6 @@ protected:
     void saveSettings();
     void loadSettings();
     bool saveProgress(QString fnam, bool quiet = false);
-    bool loadProgress(QString fnam, bool keepresults, bool quiet);
     void updateMapSeed();
     void setDockable(bool dockable);
     void applyConfigChanges(const Config old, const Config conf);
