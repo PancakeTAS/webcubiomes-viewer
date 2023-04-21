@@ -11,7 +11,9 @@ void Timer::run() {
     mainWindow->formControl->stopSearch();
     uint64_t prog, end, seed;
     mainWindow->formControl->sthread.getProgress(&prog, &end, &seed);
-    qInfo() << QString::asprintf("PROGRESS: %" PRIu64, prog) << '\n';
+    QDebug info = qInfo();
+    info.noquote();
+    info << QString::asprintf("PROGRESS: %" PRIu64, prog);
     QApplication::quit();
 }
 

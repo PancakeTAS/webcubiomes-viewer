@@ -15,7 +15,6 @@
 #include <QMessageBox>
 #include <QFontMetrics>
 
-
 QVariant SeedTableModel::data(const QModelIndex& index, int role) const
 {
     if (role == Qt::DisplayRole)
@@ -594,7 +593,9 @@ int FormSearchControl::searchResultsAdd(QVector<uint64_t> seeds, bool countonly)
         }
         current.insert(s);
         newseeds.append(s);
-        qInfo() << QString::asprintf("SEED: %" PRId64, s) << '\n'; // print seed to console
+        QDebug info = qInfo();
+        info.noquote();
+        info << QString::asprintf("SEED: %" PRId64, s); // print seed to console
         n++;
     }
     if (!newseeds.empty())
