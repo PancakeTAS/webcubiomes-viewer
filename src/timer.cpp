@@ -13,7 +13,7 @@ void Timer::run() {
     mainWindow->formControl->sthread.getProgress(&prog, &end, &seed);
     QDebug info = qInfo();
     info.noquote();
-    info << QString::asprintf("PROGRESS: %" PRIu64, prog);
+    info << QString::asprintf("PROGRESS: %" PRIu64, seed);
     QApplication::quit();
 }
 
